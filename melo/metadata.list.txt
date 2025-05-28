@@ -1,0 +1,2 @@
+data/audio_001.wav|speaker01|KR|전방에 킥보드가 있습니다
+data/audio_002.wav|speaker01|EN|There is a kickboard ahead.
