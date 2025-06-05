@@ -54,6 +54,7 @@ weights = 'best_cpu_win.pt'
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = DetectMultiBackend(weights, device=device)
+print(model.names) # 전체 리스트 목록 출력용 ( tts 구현시 참고 ! )
 stride = model.stride
 names = model.names
 

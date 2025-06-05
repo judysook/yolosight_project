@@ -1,8 +1,3 @@
-# 바운딩 박스 색깔이 다 똑같으니까 너무 지저분해 보인다.
-# 바운딩 박스 색깔을 랜덤으로 지정해보자.
-# 각 객체가 왼쪽 오른쪽 앞에 있는지 확인 가능하게 하자
-# 바운딩 박스의 크기로 도보인지, 보도인지 구분가능하게 하자.
-
 import numpy as np
 import cv2
 import torch
@@ -10,6 +5,7 @@ from pathlib import Path
 from models.common import DetectMultiBackend
 from utils.general import non_max_suppression
 import random
+import time
 
 def scale_coords(img1_shape, coords, img0_shape, ratio_pad=None):
     if ratio_pad is None:  # calculate from img0_shape
@@ -89,6 +85,7 @@ while True:
 
     for det in pred:
         if len(det):
+            
             det[:, :4] = scale_coords(img.shape[2:], det[:, :4], frame.shape).round()
             for *xyxy, conf, cls in det:
                 cls = int(cls.item())
@@ -122,8 +119,14 @@ while True:
         print(msg)  # TTS 연동 시 여기 연결
 
     cv2.imshow('YOLOv5 Webcam Detection', frame)
-    if cv2.waitKey(1) == ord('q'):
+    
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('s'):
+        cv2.imwrite(f'detection_{int(time.time())}.jpg', frame)
+        print("이미지 저장됨!")
+    elif key == ord('q'):
         break
+
 
 cap.release()
 cv2.destroyAllWindows()
