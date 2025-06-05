@@ -1,4 +1,4 @@
-모델이 들어오기 전에 만든 초기 웹캠 0. webcam_pre_yolo.py 
+모델이 들어오기 전에 만든 초기 웹캠 0. webcam_pre_yolo.py , webcam_detect_*.py 의 결과 사진 : detect_*
 
 # best_cpu_win123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
 
