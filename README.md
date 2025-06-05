@@ -10,5 +10,5 @@ best_cpu_win123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam
 
 3. webcam_detect_3.py 을 이용한 detect_3 결과 사진
 
-  (객체가 겹치면 레이블 위치 조정 탑재)
+   (객체가 겹치면 레이블 위치 조정 탑재)
 
