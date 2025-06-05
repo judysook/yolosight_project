@@ -1,12 +1,10 @@
-모델이 들어오기 전에 만든 초기 웹캠 webcam_pre_yolo.py 
+모델이 들어오기 전에 만든 초기 웹캠 0. webcam_pre_yolo.py 
 
-best_cpu_win123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
+# best_cpu_win123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
 
-1. webcam_detect_1.py 을 이용한 detect_1 결과 사진
+1. webcam_detect_1.py 
 
-2. webcam_detect_2.py 을 이용한 detect_2 결과 사진
-
-<추가 기능>
+2. webcam_detect_2.py 
 
 - 탐지된 객체의 바운딩 박스와 라벨 표시
 
@@ -18,9 +16,7 @@ best_cpu_win123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam
 
 - 캡처 기능 (s 키 누르면 이미지 저장)
 
-3. webcam_detect_3.py 을 이용한 detect_3 결과 사진
-
-<추가 기능>
+3. webcam_detect_3.py 
 
 - 라벨 겹침 방지: y좌표가 가까운 경우 일정 거리 이상 띄워 배치
 
