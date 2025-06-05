@@ -2,7 +2,7 @@
 
 best_cpu_win123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
 
-1. webcam_detect_1.py (1차 버전) 을 이용한 detect_1 결과 사진
+1. webcam_detect_1.py 을 이용한 detect_1 결과 사진
 
 2. webcam_detect_2.py 을 이용한 detect_2 결과 사진
 
