@@ -26,9 +26,9 @@
 4. webcam_detect_4.py 
 
 - 개선된 best.pt 적용, PosixPath 관련 에러 해결
-
-5. webcam_detect_5.py
-
+  
 - 영상 녹화 기능 (c 키 누르면 녹화시작/종료)
+
+
 
 
