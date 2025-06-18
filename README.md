@@ -3,7 +3,8 @@
 - webcam_detect_*.py 의 결과 사진 : detect_* 에 대응 
 
 # best_cpu_win_123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
-# best_cpu_win_4.pt 를 이용해 webcam_detect_4.py 
+# best_cpu_win_45.pt 를 이용해 webcam_detect_4.py, webcam_detect_5.py
+# best_cpu_win_final.pt 를 이용해 webcam_final.py
 
 1. webcam_detect_1.py 
 
@@ -27,7 +28,11 @@
 
 - 개선된 best.pt 적용, PosixPath 관련 에러 해결
   
+5. webcam_detect_5.py
+
 - 영상 녹화 기능 (c 키 누르면 녹화시작/종료)
+
+6. webcam_final.py
 
 
 
