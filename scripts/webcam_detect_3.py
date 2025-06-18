@@ -53,7 +53,7 @@ def letterbox(im, new_shape=(640, 640), color=(114, 114, 114), auto=False,
 
 
 # 모델 로딩
-weights = 'best_cpu_win.pt'
+weights = 'best_cpu_win_123.pt'
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = DetectMultiBackend(weights, device=device)
 stride = model.stride
