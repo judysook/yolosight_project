@@ -50,7 +50,7 @@ from models.common import DetectMultiBackend
 from utils.general import non_max_suppression
 
 
-weights = 'best_cpu_win.pt'
+weights = 'best_cpu_win_123.pt'
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = DetectMultiBackend(weights, device=device)
