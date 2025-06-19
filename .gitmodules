@@ -1,0 +1,3 @@
+[submodule "tts/RealTime_zeroshot_TTS_ko"]
+	path = tts/RealTime_zeroshot_TTS_ko
+	url = https://github.com/Nyan-SouthKorea/RealTime_zeroshot_TTS_ko.git
