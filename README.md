@@ -4,7 +4,7 @@
 
 # best_cpu_win_123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
 # best_cpu_win_45.pt 를 이용해 webcam_detect_4.py ~ webcam_detect_8.py
-# best_cpu_win_final.pt 를 이용해 webcam_final.py
+# best_cpu_win_final.pt 를 이용해 webcam_detect_final.py
 
 1. webcam_detect_1.py 
 
@@ -34,11 +34,17 @@
 
 ----------------------------------------------------------------------------
 
-6. webcam_detect_6.py ~ webcam_detect_8.py
+6. webcam_detect_6.py, webcam_detect_7.py
 
 - TTS import 함 (제로샷 TTS, MeloTTS)
 
 - TTS 파일 재생 오류 고쳐나감
+
+7. webcam_detect_8.py
+
+- 사용자 키가 작동 안하는 문제 발생
+
+8. webcam_detect_final.py
 
 
 
