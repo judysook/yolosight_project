@@ -1,6 +1,6 @@
 - 모델이 들어오기 전에 만든 초기 웹캠 0. webcam_pre_yolo.py 
 
-- webcam_detect_*.py 의 결과 사진 : detect_* 에 대응 
+- webcam_detect_*.py 의 결과 : detect_* 에 대응 
 
 # best_cpu_win_123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
 # best_cpu_win_45.pt 를 이용해 webcam_detect_4.py ~ webcam_detect_8.py
@@ -42,7 +42,7 @@
 
 7. webcam_detect_8.py
 
-- 사용자 키가 작동 안하는 문제 발생
+- TTS 정상 작동, 사용자 키가 작동 안하는 문제 발생
 
 8. webcam_detect_final.py
 
