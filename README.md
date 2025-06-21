@@ -181,6 +181,13 @@ Licensed under MIT. See [LICENSE](LICENSE) for details.
 
   * [RealTime\_zeroshot\_TTS\_ko](https://github.com/Nyan-SouthKorea/RealTime_zeroshot_TTS_ko)
   * [OpenVoice](https://github.com/myshell-ai/OpenVoice)
+  * [MeloTTS](https://github.com/myshell-ai/MeloTTS)
+  * [SCE-TTS](https://sce-tts.github.io/#/v2/test) - Pre-trained multi-speaker Korean TTS
+  * [Coqui TTS v0.11.0](https://github.com/coqui-ai/TTS/tree/v0.11.0) - High-quality TTS framework
+
+
+### Acknowledgments
+Special thanks to the open-source TTS community and the developers of MeloTTS, SCE-TTS, and Coqui TTS for their valuable contributions to the field.
 
 For detailed discussions and design rationales, see our project meeting notes and issues tracker.
 
