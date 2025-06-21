@@ -11,7 +11,7 @@
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [YOLOv5 Inference Module](#yolov5-inference-module)
-6. [TTS Integration and Technical Research](#TTS_Integration_and_Technical-Research)
+6. [TTS Integration and Technical Research](#TTS_Integration_and_Technical_Research)
 7. [TTS Modules](#tts-modules)
 8. [Webcam Demo](#webcam-demo)
 9. [Model Weights](#model-weights)
