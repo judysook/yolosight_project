@@ -115,19 +115,51 @@ Each folder contains its own README and requirements. Follow those for setup.
 
 ## Webcam Demo
 
-Central focus: live webcam + detection + audio.
+Detailed breakdown of the live **webcam** integration pipeline:
 
-```bash
-python webcam/webcam_detect_final.py --weights models/best_cpu_win_final.pt
-```
+### 1. Environment Setup & Module Paths
 
-**Runtime controls:**
+* **Project root calculation** (`ROOT` variable)
+* **Path compatibility patch** for Windows (`pathlib.PosixPath = pathlib.WindowsPath`)
+* **Dynamic import** of YOLOv5 and TTS modules via `sys.path.insert`
 
-* `s`: save screenshot to `screenshots/`
-* `c`: toggle video recording to `recordings/`
-* `q`: quit demo
+### 2. Video Pre‑processing
 
-## Model&#x20;
+* **Letterbox** resizing to 640×640 with padding
+* **Channel & dimension** conversion: BGR→RGB, HWC→CHW, normalization
+
+### 3. Object Detection & Post‑processing
+
+* **Model loading** using `DetectMultiBackend`
+* **Inference & NMS** (`non_max_suppression`)
+* **Coordinate inverse mapping** (`scale_coords`)
+* **Bounding‑box & label overlay**:
+
+  * Random color per class
+  * `cv2.rectangle` + `cv2.putText`
+* **Overlap‑free labels**: Y‑axis offset collision avoidance
+* **Spatial logic** (direction + crosswalk/road):
+
+  * Center x-coordinate < 1/3 of frame width → “Left”; > 2/3 → “Right”; otherwise → “Front”
+  * “crosswalk” detected only in the bottom 35% of the frame (y > 65% height) → “Crosswalk (road) detected”
+  * “road” class → “Road detected"
+
+### 4. Asynchronous TTS Integration### 2.4 Asynchronous TTS Integration
+
+* **TTS initialization** (`Custom_TTS`, `MeloTTS`)
+* **Output folder cleanup** per utterance
+* **2‑second debounce** for speech notifications
+* **Background thread** for non‑blocking audio playback
+
+### 5. User Key Controls
+
+* **Screenshot** (`s`): capture frame → `screenshots/<timestamp>.jpg`
+* **Recording toggle** (`c`): start/stop MP4 → `recordings/<timestamp>.mp4`
+* **Quit** (`q`): release capture & close window
+
+## Model Weights
+
+&#x20;
 
 ## Contributing
 
