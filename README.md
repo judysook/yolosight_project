@@ -11,7 +11,7 @@
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [YOLOv5 Inference Module](#yolov5-inference-module)
-6. [TTS Models and Experimental Framework](#TTS-Models-and-Experimental-Framework)
+6. [TTS Integration and Technical Research](#TTS_Integration_and_Technical-Research)
 7. [TTS Modules](#tts-modules)
 8. [Webcam Demo](#webcam-demo)
 9. [Model Weights](#model-weights)
@@ -108,21 +108,37 @@ python inference/yolov5/detect.py \
 
 Refer to `inference/yolov5/README.md` for more options.
 
-## TTS Models and Experimental Framework
-This project incorporates experimental testing and comparative analysis using the following TTS models:
+## TTS Integration and Technical Research
 
-MeloTTS: Multi-lingual TTS library supporting CPU-based real-time inference, used for lightweight TTS experimentation
-SCE-TTS Demo: Pre-trained multi-speaker Korean TTS model used for Korean speech synthesis comparison testing
-Coqui TTS v0.11.0: High-quality TTS framework utilized for advanced model experimentation and comparative analysis
+This section covers TTS implementation research and the final integration approach:
 
+### TTS Framework Evaluation
+- **[MeloTTS](https://github.com/myshell-ai/MeloTTS)**: Explored custom training and CPU-based inference
+- **[Coqui TTS v0.11.0](https://github.com/coqui-ai/TTS/tree/v0.11.0)**: Investigated advanced configuration options for experimental purposes
+- **[SCE-TTS](https://sce-tts.github.io/#/v2/test)**: Tested Korean language inference capabilities
 
-⚠️ Note: Experimental code and development iterations are maintained in separate branches for testing and future integration considerations.
+### Implementation Approach
+Due to complexity of custom model training and environment compatibility challenges, the project adopted a collaborative integration strategy:
 
-Development Branches
+- **Primary Solution**: CPU-based MeloTTS for lightweight real-time synthesis
+- **Korean Optimization**: RealTime_zeroshot_TTS_ko for enhanced Korean language support
+- **Performance Consideration**: TTS integration impacts webcam processing speed, requiring careful resource management
 
-judysook-tts(infer): SCE-TTS inference testing (training data stored in external drive)
-tts-clean: Initial MeloTTS experimental implementation
-tts-clean_06.12progress_MeloTTS: Development branch with Colab integration and error handling iterations
+### Technical Insights
+- Cross-platform compatibility requires careful environment configuration
+- TTS quality depends heavily on preprocessing and text alignment
+- Real-time performance vs. audio quality trade-offs need balancing
+- Collaborative debugging essential for complex integrations
+
+### Final Integration
+The team successfully integrated TTS functionality with shared dependency management and standardized environment setup.
+
+> 💡 **Note**: Detailed development logs and experimental iterations are maintained in separate branches for reference and future improvements.
+
+### Development Structure
+- `tts-clean`: Initial implementation attempts  
+- `judysook-tts(infer)`: Korean TTS testing
+- `tts-clean_06.12progress_MeloTTS`: Development iterations
 
 ## TTS Modules
 
