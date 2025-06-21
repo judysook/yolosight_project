@@ -16,6 +16,7 @@
 8. [Model Weights](#model-weights)
 9. [Contributing](#contributing)
 10. [License](#license)
+11. [References](#references)
 
 ---
 
@@ -173,4 +174,14 @@ Please adhere to style guides and include tests/demos.
 ## License
 
 Licensed under MIT. See [LICENSE](LICENSE) for details.
+
+## References
+
+* Inspired by:
+
+  * [RealTime\_zeroshot\_TTS\_ko](https://github.com/Nyan-SouthKorea/RealTime_zeroshot_TTS_ko)
+  * [OpenVoice](https://github.com/myshell-ai/OpenVoice)
+
+For detailed discussions and design rationales, see our project meeting notes and issues tracker.
+
 
