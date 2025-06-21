@@ -1,50 +1,119 @@
-- 모델이 들어오기 전에 만든 초기 웹캠 0. webcam_pre_yolo.py 
+# YOLOSight: Real-Time Webcam Object Detection with TTS
 
-- webcam_detect_*.py 의 결과 : detect_* 에 대응 
+> A Python-based real-time object detection system using YOLOv5 and Text-to-Speech (TTS), showcasing incremental feature development through multiple script versions.
 
-# best_cpu_win_123.pt 을 이용해 webcam_detect_1.py, webcam_detect_2.py,  webcam_detect_3.py 
-# best_cpu_win_45.pt 를 이용해 webcam_detect_4.py ~ webcam_detect_8.py
-# best_cpu_win_final.pt 를 이용해 webcam_detect_final.py
+## Table of Contents
 
-1. webcam_detect_1.py 
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Prerequisites](#prerequisites)
+4. [Project Structure](#project-structure)
+5. [Script Versions & Mapping](#script-versions--mapping)
+6. [Configuration](#configuration)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Authors & References](#authors--references)
 
-2. webcam_detect_2.py 
+---
 
-- 탐지된 객체의 바운딩 박스와 라벨 표시
+## Overview
 
-- 클래스별 랜덤 색상
+YOLOSight provides a step-by-step evolution of a real-time object detection pipeline using YOLOv5 on webcam feeds, enhanced with features like capture, recording, overlap-free labels, and TTS for accessibility.
 
-- 객체 중심 좌표(cx, cy) 기준으로 방향 판단 (왼쪽 / 앞쪽 / 오른쪽)
+## Features
 
-- ‘crosswalk’ 아래쪽 + ‘road’ → 차도로 판단
+* **Incremental Development**: Eight detection scripts (`webcam_detect_1.py` through `webcam_detect_8.py`), each adding new capabilities.
+* **Model Switching**: Easy swapping of different `.pt` model weights.
+* **Direction Detection**: Classify objects as left / front / right based on bounding-box centers.
+* **Crosswalk & Road Logic**: Detect and interpret ‘crosswalk’ + ‘road’ combinations as vehicle zones.
+* **Capture & Record**:
 
-- 캡처 기능 (s 키 누르면 이미지 저장)
+  * Press `s` to save snapshots.
+  * Press `c` to start/stop video recording.
+* **Label Overlap Prevention**: Automatic vertical spacing when labels are too close.
+* **TTS Integration**: Zero-shot TTS and MeloTTS playback for audio alerts.
 
-3. webcam_detect_3.py 
+## Prerequisites
 
-- 라벨 겹침 방지: y좌표가 가까운 경우 일정 거리 이상 띄워 배치
+* Python 3.7+ (recommended 3.8)
+* [PyTorch](https://pytorch.org/) with CPU support
+* OpenCV (`opencv-python`)
+* NumPy, PyYAML, other dependencies listed in `requirements.txt`
 
-4. webcam_detect_4.py 
+## Project Structure
 
-- 개선된 best.pt 적용, PosixPath 관련 에러 해결
-  
-5. webcam_detect_5.py
+```
+webcam/
+├── models/               # YOLOv5 model weights
+│   ├── best_cpu_win_123.pt
+│   ├── best_cpu_win_45.pt
+│   └── best_cpu_win_final.pt
+├── scripts/              # All detection scripts
+│   ├── webcam_pre_yolo.py
+│   ├── webcam_detect_1.py
+│   ├── webcam_detect_2.py
+│   ├── webcam_detect_3.py
+│   ├── webcam_detect_4.py
+│   ├── webcam_detect_5.py
+│   ├── webcam_detect_6.py
+│   ├── webcam_detect_7.py
+│   └── webcam_detect_8.py      # Alias: webcam_detect_final.py
+├── detections/           # Saved snapshots & videos per script
+│   ├── detect_1/
+│   ├── detect_2/
+│   └── detect_3/
+│   └── detect_4/
+│   └── detect_5/
+├── README.md             # Project overview & instructions
+└── requirements.txt      # Python dependencies
+```
 
-- 영상 녹화 기능 (c 키 누르면 녹화시작/종료)
+## Script Versions & Mapping
 
-----------------------------------------------------------------------------
+| Script               | Model File              | Key Enhancements                         |
+| -------------------- | ----------------------- | ---------------------------------------- |
+| `webcam_pre_yolo.py` | *—*                     | Initial YOLO inference test              |
+| `webcam_detect_1.py` | `best_cpu_win_123.pt`   | Basic detection (bbox + labels)          |
+| `webcam_detect_2.py` | `best_cpu_win_123.pt`   | Class-based random colors + direction    |
+| `webcam_detect_3.py` | `best_cpu_win_123.pt`   | Overlap-free label placement             |
+| `webcam_detect_4.py` | `best_cpu_win_45.pt`    | Model & PosixPath fixes                  |
+| `webcam_detect_5.py` | `best_cpu_win_45.pt`    | Video recording toggle (`c` key)         |
+| `webcam_detect_6.py` | `best_cpu_win_45.pt`    | Zero-shot TTS import                     |
+| `webcam_detect_7.py` | `best_cpu_win_45.pt`    | MeloTTS integration & playback fixes     |
+| `webcam_detect_8.py` | `best_cpu_win_final.pt` | Final stable version w/ full TTS support |
 
-6. webcam_detect_6.py, webcam_detect_7.py
+## Configuration
 
-- TTS import 함 (제로샷 TTS, MeloTTS)
+You can customize:
 
-- TTS 파일 재생 오류 고쳐나감
+* `--conf-thres`: Detection confidence threshold
+* `--iou-thres`: NMS IoU threshold
+* `--half`: Use FP16 inference (if GPU available)
+* YOLOv5 flags (refer to [YOLOv5 docs](https://github.com/ultralytics/yolov5))
 
-7. webcam_detect_8.py
+## Contributing
 
-- TTS 정상 작동, 사용자 키가 작동 안하는 문제 발생
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add feature'`)
+4. Push to branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
 
-8. webcam_detect_final.py
+Please adhere to the existing code style and include tests when appropriate.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Authors & References
+
+* **Seojin031** – Initial development & documentation
+* Inspired by:
+
+  * [RealTime\_zeroshot\_TTS\_ko](https://github.com/Nyan-SouthKorea/RealTime_zeroshot_TTS_ko)
+  * [OpenVoice](https://github.com/myshell-ai/OpenVoice)
+
+For detailed discussions and design rationales, see our project meeting notes and issues tracker.
 
 
 
