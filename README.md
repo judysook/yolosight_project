@@ -112,30 +112,30 @@ Refer to `inference/yolov5/README.md` for more options.
 
 This section covers TTS implementation research and the final integration approach:
 
-### TTS Framework Evaluation
+TTS Framework Evaluation
 - **[MeloTTS](https://github.com/myshell-ai/MeloTTS)**: Explored custom training and CPU-based inference
 - **[Coqui TTS v0.11.0](https://github.com/coqui-ai/TTS/tree/v0.11.0)**: Investigated advanced configuration options for experimental purposes
 - **[SCE-TTS](https://sce-tts.github.io/#/v2/test)**: Tested Korean language inference capabilities
 
-### Implementation Approach
+Implementation Approach
 Due to complexity of custom model training and environment compatibility challenges, the project adopted a collaborative integration strategy:
 
 - **Primary Solution**: CPU-based MeloTTS for lightweight real-time synthesis
 - **Korean Optimization**: RealTime_zeroshot_TTS_ko for enhanced Korean language support
 - **Performance Consideration**: TTS integration impacts webcam processing speed, requiring careful resource management
 
-### Technical Insights
+Technical Insights
 - Cross-platform compatibility requires careful environment configuration
 - TTS quality depends heavily on preprocessing and text alignment
 - Real-time performance vs. audio quality trade-offs need balancing
 - Collaborative debugging essential for complex integrations
 
-### Final Integration
+Final Integration
 The team successfully integrated TTS functionality with shared dependency management and standardized environment setup.
 
 > 💡 **Note**: Detailed development logs and experimental iterations are maintained in separate branches for reference and future improvements.
 
-### Development Structure
+Development Structure
 - `tts-clean`: Initial implementation attempts  
 - `judysook-tts(infer)`: Korean TTS testing
 - `tts-clean_06.12progress_MeloTTS`: Development iterations
