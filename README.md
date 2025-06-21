@@ -144,7 +144,7 @@ Detailed breakdown of the live **webcam** integration pipeline:
   * “crosswalk” detected only in the bottom 35% of the frame (y > 65% height) → “Crosswalk (road) detected”
   * “road” class → “Road detected"
 
-### 4. Asynchronous TTS Integration### 2.4 Asynchronous TTS Integration
+### 4. Asynchronous TTS Integration
 
 * **TTS initialization** (`Custom_TTS`, `MeloTTS`)
 * **Output folder cleanup** per utterance
