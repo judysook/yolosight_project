@@ -11,12 +11,13 @@
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [YOLOv5 Inference Module](#yolov5-inference-module)
-6. [TTS Modules](#tts-modules)
-7. [Webcam Demo](#webcam-demo)
-8. [Model Weights](#model-weights)
-9. [Contributing](#contributing)
-10. [License](#license)
-11. [References](#references)
+6. [TTS Models and Experimental Framework](#TTS-Models-and-Experimental-Framework)
+7. [TTS Modules](#tts-modules)
+8. [Webcam Demo](#webcam-demo)
+9. [Model Weights](#model-weights)
+10. [Contributing](#contributing)
+11. [License](#license)
+12. [References](#references)
 
 ---
 
@@ -107,6 +108,22 @@ python inference/yolov5/detect.py \
 
 Refer to `inference/yolov5/README.md` for more options.
 
+## TTS Models and Experimental Framework
+This project incorporates experimental testing and comparative analysis using the following TTS models:
+
+MeloTTS: Multi-lingual TTS library supporting CPU-based real-time inference, used for lightweight TTS experimentation
+SCE-TTS Demo: Pre-trained multi-speaker Korean TTS model used for Korean speech synthesis comparison testing
+Coqui TTS v0.11.0: High-quality TTS framework utilized for advanced model experimentation and comparative analysis
+
+
+⚠️ Note: Experimental code and development iterations are maintained in separate branches for testing and future integration considerations.
+
+Development Branches
+
+judysook-tts(infer): SCE-TTS inference testing (training data stored in external drive)
+tts-clean: Initial MeloTTS experimental implementation
+tts-clean_06.12progress_MeloTTS: Development branch with Colab integration and error handling iterations
+
 ## TTS Modules
 
 * **Zero-shot TTS** (`tts/RealTime_zeroshot_TTS_ko`)
@@ -184,6 +201,11 @@ Licensed under MIT. See [LICENSE](LICENSE) for details.
   * [MeloTTS](https://github.com/myshell-ai/MeloTTS)
   * [SCE-TTS](https://sce-tts.github.io/#/v2/test) - Pre-trained multi-speaker Korean TTS
   * [Coqui TTS v0.11.0](https://github.com/coqui-ai/TTS/tree/v0.11.0) - High-quality TTS framework
+
+### Contributors
+- [Judysook] - TTS integration, model experimentation, and comparative analysis
+- [seogin031]
+- [snowball518]
 
 
 ### Acknowledgments
