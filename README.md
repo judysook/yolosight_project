@@ -99,14 +99,22 @@ YOLOSight/
 
 Run offline inference with:
 
-```bash
-python inference/yolov5/detect.py \
-  --weights ../../models/best_cpu_win_final.pt \
-  --source path/to/image_or_video \
-  --img 640 --conf 0.4 --save-txt --save-conf
-```
+## Dataset name: 0604dataset (Roboflow)
 
-Refer to `inference/yolov5/README.md` for more options.
+- Number of images: 1,745
+- Format: YOLOv5
+- Classes: bicyle, car, crosswalk,kickboard, manhole, motorcycle, road, stairs, stop, straight
+
+The model was trained using Google Colab with the YOLOv5s architecture.  
+Key training settings are as follows:
+
+- Image size: 640x640  
+- Batch size: 64  
+- Epochs: 300  
+- Model: YOLOv5s  
+- Data augmentation: Not applied
+
+Refer to `inference-model/README.md` for more options.
 
 ## TTS Integration and Technical Research
 
