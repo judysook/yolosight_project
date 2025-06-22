@@ -47,6 +47,7 @@ project = rf.workspace("").project("")  # Insert workspace and project name
 dataset = project.version().download("yolov5")  # Use correct format version
 
 # Train YOLOv5
-!python train.py --img 640 --batch 64 --epochs 300 --data data.yaml --weights yolov5s.pt```
+!python train.py --img 640 --batch 64 --epochs 300 --data data.yaml --weights yolov5s.pt
+```
 **Final output:** `best.pt` was generated as the final trained model.
 
