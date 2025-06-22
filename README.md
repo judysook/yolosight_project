@@ -10,7 +10,7 @@
 2. [Directory Structure](#directory-structure)
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
-5. [YOLOv5 Training Module](#yolov5-inference-module)
+5. [YOLOv5 Training Module](#yolov5-training-module)
 6. [TTS Integration and Technical Research](#TTS_Integration_and_Technical_Research)
 7. [TTS Modules](#tts-modules)
 8. [Webcam Demo](#webcam-demo)
