@@ -95,15 +95,20 @@ YOLOSight/
      cd ../../
      ```
 
-## YOLOv5 Inference Module
-
-Run offline inference with:
-
-## Dataset name: 0604dataset (Roboflow)
+## YOLOv5 Training Module
+Trained on: Dataset name: 0604dataset (created and labeled via Roboflow)  
 
 - Number of images: 1,745
 - Format: YOLOv5
 - Classes: bicyle, car, crosswalk,kickboard, manhole, motorcycle, road, stairs, stop, straight
+
+**Note:**  
+Due to a typo during dataset preparation, the class "bicycle" is labeled as **"bicyle"** in both annotations and training.  
+Please be aware that the model uses "bicyle" as the class name internally.
+
+- View & download dataset: [Roboflow Project Page](https://app.roboflow.com/ossprojobjectdetectionpractice/0604dataset/4)
+
+## Training Code
 
 The model was trained using Google Colab with the YOLOv5s architecture.  
 Key training settings are as follows:
@@ -114,7 +119,36 @@ Key training settings are as follows:
 - Model: YOLOv5s  
 - Data augmentation: Not applied
 
-Refer to `inference-model/README.md` for more options.
+## YOLOv5 Training Code (Google Colab)
+
+```python
+# Clone YOLOv5 repository
+!git clone https://github.com/ultralytics/yolov5
+
+# Move into the yolov5 directory
+%cd yolov5
+
+# Install required dependencies
+!pip install -r requirements.txt
+
+# Mount Google Drive
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Install Roboflow
+!pip install roboflow
+
+# Import Roboflow and download dataset
+from roboflow import Roboflow
+rf = Roboflow(api_key="")  # Insert your API key
+project = rf.workspace("").project("")  # Insert workspace and project name
+dataset = project.version().download("yolov5")  # Use correct format version
+
+# Train YOLOv5
+!python train.py --img 640 --batch 64 --epochs 300 --data data.yaml --weights yolov5s.pt
+```
+
+**Final output:** `best.pt` was generated as the final trained model.
 
 ## TTS Integration and Technical Research
 
@@ -228,8 +262,10 @@ Licensed under MIT. See [LICENSE](LICENSE) for details.
 
 ### Contributors
 - [Judysook] - TTS integration, model experimentation, and comparative analysis
-- [seogin031]
-- [snowball518]
+- [seogin031] -  Developed webcam-based real-time object detection with asynchronous TTS feedback.  
+                 Integrated YOLOv5 and custom TTS modules (Zero-shot TTS & MeloTTS).  
+                 Implemented pre-processing, spatial logic (e.g., direction & road/crosswalk detection), and UI controls (recording, screenshot, etc.).
+- [snowball518] - Created and managed 0604dataset on Roboflow, and trained YOLOv5s model using Google Colab
 
 
 ### Acknowledgments
