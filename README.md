@@ -11,7 +11,7 @@
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [YOLOv5 Training Module](#yolov5-training-module)
-6. [TTS Integration and Technical Research](#TTS_Integration_and_Technical_Research)
+6. [TTS Integration and Technical Research](#TTS-Integration-and-Technical-Research)
 7. [TTS Modules](#tts-modules)
 8. [Webcam Demo](#webcam-demo)
 9. [Model Weights](#model-weights)
@@ -119,7 +119,7 @@ Key training settings are as follows:
 - Model: YOLOv5s  
 - Data augmentation: Not applied
 
-## YOLOv5 Training Code (Google Colab)
+cf. YOLOv5 Training Code (Google Colab)
 
 ```python
 # Clone YOLOv5 repository
