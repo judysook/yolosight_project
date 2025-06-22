@@ -150,6 +150,8 @@ dataset = project.version().download("yolov5")  # Use correct format version
 
 **Final output:** `best.pt` was generated as the final trained model.
 
+The trained model `best_cpu_win_final.pt` can be found in the `models/` directory.
+
 ## TTS Integration and Technical Research
 
 This section covers TTS implementation research and the final integration approach:
